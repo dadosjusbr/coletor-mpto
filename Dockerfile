@@ -9,7 +9,8 @@ WORKDIR /code
 
 # copy the dependencies file to the working directory
 COPY requirements.txt .
-# intall libreoffice
+
+# install libreoffice
 RUN apt-get install -y libreoffice 
 
 # install dependencies
