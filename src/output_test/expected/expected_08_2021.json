@@ -1,0 +1,114 @@
+{
+    "contraCheque": [
+        {
+            "idContraCheque": "mpto/8/2021/1",
+            "chaveColeta": "mpto/8/2021",
+            "nome": "ABEL ANDRADE LEAL JUNIOR",
+            "matricula": "32201",
+            "funcao": "02° PROMOTOR DE JUSTIÇA DA CAPITAL, CHEFE DE GABINETE DE PROCURADOR-GERAL DE JUSTIÇA",
+            "localTrabalho": "02ª PROMOTORIA DE JUSTIÇA DA CAPITAL",
+            "ativo": true,
+            "remuneracoes": {
+                "remuneracao": [
+                    {
+                        "categoria": "contracheque_2021_ago",
+                        "item": "Remuneração do Cargo Efetivo",
+                        "valor": 33689.11
+                    },
+                    {
+                        "categoria": "contracheque_2021_ago",
+                        "item": "Outras Verbas Remuneratórias Legais/Judiciais",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_2021_ago",
+                        "item": "Função de Confiança ou Cargo em Comissão",
+                        "valor": 6737.82,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_2021_ago",
+                        "item": "13o. Salário",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_2021_ago",
+                        "item": "Adicional de Férias",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "contracheque_2021_ago",
+                        "item": "Abono de Permanência",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_2021_ago",
+                        "item": "Contribuição Previdenciária",
+                        "valor": -4716.48
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_2021_ago",
+                        "item": "Imposto de Renda",
+                        "valor": -8639.27
+                    },
+                    {
+                        "natureza": "D",
+                        "categoria": "contracheque_2021_ago",
+                        "item": "Retenção do Teto",
+                        "valor": -1133.61
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Auxílio alimentação",
+                        "valor": 1700.0,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Auxílio Moradia",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Auxílio Saúde",
+                        "valor": 760.73,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Feria indenizadas",
+                        "valor": 19646.16,
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Licenca Prêmio Indenizada",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Aposentadoria Incentivada",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Verbas Rescisorias",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Cumulações",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizacoes_2021_ago",
+                        "item": "Complemento",
+                        "tipoReceita": "O"
+                    }
+                ]
+            }
+        }
+    ]
+}

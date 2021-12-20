@@ -22,7 +22,9 @@ def _convert_file(file, output_path):
     """
     Converte os arquivos ODS que estão corrompidos, para XLSX.
     """
-    subprocess.run(["libreoffice", "--headless", "--invisible", "--convert-to", "xlsx", file])
+    subprocess.run(
+        ["libreoffice", "--headless", "--invisible", "--convert-to", "xlsx", file], capture_output=True, text=True
+    ) # Pega a saída para não interferir no print dos dados
     file_name = file.split(sep="/")[-1]
     file_name = f'{file_name.split(sep=".")[0]}.xlsx'
     # Move para o diretório passado por parâmetro
@@ -38,7 +40,7 @@ def load(file_names, year, month, output_path):
      :param year e month: usados para fazer a validação na planilha de controle de dados
      :return um objeto Data() pronto para operar com os arquivos
     """
-    if year == "2018" or (year == "2019" and int(month) <= 5):
+    if year == "2018" or (year == "2019" and int(month) <= 5) or (year == "2020" and int(month) == 2):
         contracheque = _read(_convert_file([c for c in file_names if "contracheque" in c][0], output_path), "openpyxl")
         indenizatorias = _read(_convert_file([i for i in file_names if "indenizatorias" in i][0], output_path), "openpyxl")
         return Data(contracheque, indenizatorias, year, month, output_path)
