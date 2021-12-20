@@ -14,7 +14,9 @@ from headers_keys import (CONTRACHEQUE_JAN_MAY_2018,
                           CONTRACHEQUE_2020,
                           INDENIZACOES_2020,
                           CONTRACHEQUE_2021,
-                          INDENIZACOES_2021, HEADERS)
+                          INDENIZACOES_2021,
+                          CONTRACHEQUE_2021_AGO,
+                          INDENIZACOES_2021_AGO, HEADERS)
 import number
 
 
@@ -22,10 +24,10 @@ def parse_employees(fn, chave_coleta, categoria, base):
     employees = {}
     counter = 1
     for row in fn:
-        matricula = str(row[base[0]])
+        matricula = row[base[0]]
         name = row[base[1]]
-        function = str(row[base[2]])
-        location = str(row[base[3]])
+        function = row[base[2]]
+        location = row[base[3]]
         
         if "TOTAL GERAL" in str(matricula):
             break
@@ -35,10 +37,10 @@ def parse_employees(fn, chave_coleta, categoria, base):
             membro = Coleta.ContraCheque()
             membro.id_contra_cheque = chave_coleta + "/" + str(counter)
             membro.chave_coleta = chave_coleta
-            membro.matricula = matricula
-            membro.nome = name
-            membro.funcao = function
-            membro.local_trabalho = location
+            membro.matricula = str(matricula)
+            membro.nome = str(name)
+            membro.funcao = str(function)
+            membro.local_trabalho = str(location)
             membro.tipo = Coleta.ContraCheque.Tipo.Value("MEMBRO")
             membro.ativo = True
             
@@ -79,13 +81,19 @@ def cria_remuneracao(row, categoria):
 
         elif categoria == CONTRACHEQUE_2021 and value in [15, 17, 19]:
             remuneracao.valor = remuneracao.valor * (-1)
+            remuneracao.natureza = Coleta.Remuneracao.Natureza.Value("D")
+
+        elif categoria == CONTRACHEQUE_2021_AGO and value in [27, 29, 31]:
+            remuneracao.valor = remuneracao.valor * (-1)
             remuneracao.natureza = Coleta.Remuneracao.Natureza.Value("D")  
+
         else: 
             remuneracao.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
 
         if (
             categoria == CONTRACHEQUE_JAN_MAY_2018 \
-            or categoria == CONTRACHEQUE_JUN_FORWARD_2018) and value in [9]:
+            or categoria == CONTRACHEQUE_JUN_FORWARD_2018 \
+            or categoria == CONTRACHEQUE_2021_AGO) and value in [9]:
             remuneracao.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("B")
         elif categoria == CONTRACHEQUE_APR_MAY_2019 and value in [7]:
             remuneracao.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("B")
@@ -101,7 +109,7 @@ def cria_remuneracao(row, categoria):
 
 def update_employees(fn, employees, categoria, mat):
     for row in fn:
-        matricula = str(row[mat])
+        matricula = row[mat]
         if matricula in employees.keys():
             emp = employees[matricula]
             remu = cria_remuneracao(row, categoria)
@@ -134,13 +142,18 @@ def parse(data, chave_coleta, month, year):
     elif year == "2019" and month in ["06", "07", "08"]:
         employees.update(parse_employees(data.contracheque, chave_coleta, CONTRACHEQUE_2020, [0, 1, 3, 4]))
         update_employees(data.indenizatorias, employees, INDENIZACOES_JUN_TO_AUG_2019, 0)
+
     elif year == "2021":
+        if month == "08":
+            employees.update(parse_employees(data.contracheque, chave_coleta, CONTRACHEQUE_2021_AGO, [1, 3, 5, 7]))
+            update_employees(data.indenizatorias, employees, INDENIZACOES_2021_AGO, 1)
+
         employees.update(parse_employees(data.contracheque, chave_coleta, CONTRACHEQUE_2021, [0, 1, 3, 5]))
         update_employees(data.indenizatorias, employees, INDENIZACOES_2021, 0)
+
     else:
         employees.update(parse_employees(data.contracheque, chave_coleta, CONTRACHEQUE_2020, [0, 1, 2, 3]))
         update_employees(data.indenizatorias, employees, INDENIZACOES_2020, 0)
-
 
     for i in employees.values():
         folha.contra_cheque.append(i)
