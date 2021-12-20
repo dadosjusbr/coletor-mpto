@@ -15,6 +15,9 @@ INDENIZACOES_2020 = "indenizacoes_2020"
 CONTRACHEQUE_2021 = "contracheque_2021"
 INDENIZACOES_2021 = "indenizacoes_2021"
 
+CONTRACHEQUE_2021_AGO = "contracheque_2021_ago"
+INDENIZACOES_2021_AGO = "indenizacoes_2021_ago"
+
 HEADERS = {
     CONTRACHEQUE_JAN_MAY_2018: {
         "Remuneração do Cargo Efetivo": 9,
@@ -27,6 +30,7 @@ HEADERS = {
         "Imposto de Renda": 17,
         "Retenção do Teto": 18,
     },
+
     INDENIZACOES_JAN_MAY_2018: {
         "Auxílio alimentação": 4,
         "Auxílio Moradia": 5,
@@ -45,6 +49,7 @@ HEADERS = {
         "Imposto de Renda": 17,
         "Retenção do Teto": 18,
     },
+
     INDENIZACOES_JUN_FORWARD_2018: {
         "Auxílio alimentação": 4,
         "Auxílio Moradia": 5,
@@ -65,6 +70,7 @@ HEADERS = {
         "Imposto de Renda": 15,
         "Retenção do Teto": 16,
     },
+
     INDENIZACOES_APR_MAY_2019: {
         "Auxílio alimentação": 4,
         "Auxílio Moradia": 5,
@@ -97,6 +103,7 @@ HEADERS = {
         "Cumulações": 11,
         "Complemento": 12,
     },
+
     INDENIZACOES_JUN_TO_AUG_2019:{
         "Auxílio alimentação": 5,
         "Auxílio Moradia": 6,
@@ -129,4 +136,27 @@ HEADERS = {
         "Complemento": 12,
     },
 
+    CONTRACHEQUE_2021_AGO: {
+        "Remuneração do Cargo Efetivo": 9,
+        "Outras Verbas Remuneratórias Legais/Judiciais": 10,
+        "Função de Confiança ou Cargo em Comissão": 12,
+        "13o. Salário": 14,
+        "Adicional de Férias": 16,
+        "Abono de Permanência": 18,
+        "Contribuição Previdenciária": 27,
+        "Imposto de Renda": 29,
+        "Retenção do Teto": 31,
+    },
+
+    INDENIZACOES_2021_AGO: {
+        "Auxílio alimentação": 6,
+        "Auxílio Moradia": 7,
+        "Auxílio Saúde": 8,
+        "Feria indenizadas": 9,
+        "Licenca Prêmio Indenizada": 10,
+        "Aposentadoria Incentivada": 11,
+        "Verbas Rescisorias": 12,
+        "Cumulações": 13,
+        "Complemento": 14,
+    }
 }
