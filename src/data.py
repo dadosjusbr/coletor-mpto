@@ -40,7 +40,7 @@ def load(file_names, year, month, output_path):
      :param year e month: usados para fazer a validação na planilha de controle de dados
      :return um objeto Data() pronto para operar com os arquivos
     """
-    if year == "2018" or (year == "2019" and int(month) <= 5):
+    if year == "2018" or (year == "2019" and int(month) <= 5) or (year == "2020" and int(month) == 2):
         contracheque = _read(_convert_file([c for c in file_names if "contracheque" in c][0], output_path), "openpyxl")
         indenizatorias = _read(_convert_file([i for i in file_names if "indenizatorias" in i][0], output_path), "openpyxl")
         return Data(contracheque, indenizatorias, year, month, output_path)
