@@ -22,7 +22,9 @@ def _convert_file(file, output_path):
     """
     Converte os arquivos ODS que estão corrompidos, para XLSX.
     """
-    subprocess.run(["libreoffice", "--headless", "--invisible", "--convert-to", "xlsx", file])
+    subprocess.run(
+        ["libreoffice", "--headless", "--invisible", "--convert-to", "xlsx", file], capture_output=True, text=True
+    ) # Pega a saída para não interferir no print dos dados
     file_name = file.split(sep="/")[-1]
     file_name = f'{file_name.split(sep=".")[0]}.xlsx'
     # Move para o diretório passado por parâmetro
