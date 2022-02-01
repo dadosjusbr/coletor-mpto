@@ -70,9 +70,9 @@ def links_remuneration(month, year):
         "8": "6a1d2a2439ffc469b3077ec4319f2006",
         "9": "0a69a8569f4f655a7f199943bfcc7ca1",
         "10": "31d30d7634032cb719fd11b7f40fafc6",
-        "11": "",
-        "12": "",
-        "13": "",
+        "11": "86cce28e8a77718b857479befdef7cea",
+        "12": "0ba27173df4570fcbccd5cc73abce52b",
+        "13": "06f3ca33437e0a95590d8ba0488af393",
     }
 
     links_type = {}
@@ -181,8 +181,8 @@ def links_other_funds(month, year):
         "8": "88f9636dd9b49f943d06491b4415e263",
         "9": "423454eb6d6f337bfa1e75f4d66f3a2c",
         "10": "def12f7a90dfef842154e779ae1b72ee",
-        "11": "",
-        "12": "",
+        "11": "451f7601f8da39536dc1a019c25eb4de",
+        "12": "911578dae12a9ccb540b7b8eb02e5368",
     }
 
     links_type = {}
